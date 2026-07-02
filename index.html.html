@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio of Amrutha T, an aspiring Software Engineer and MCA student specializing in React.js, Spring Boot, MySQL, and full-stack development.">
+<meta name="author" content="Amrutha T">
+<meta property="og:title" content="Amrutha T — Software Engineer Portfolio">
+<meta property="og:description" content="Full-stack portfolio featuring React, Spring Boot, MySQL, internship experience, and academic projects.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amruthat23.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%2316211D'/%3E%3Ctext x='50' y='61' text-anchor='middle' font-size='42' font-family='Arial' font-weight='700' fill='%23E9ECE9'%3EAT%3C/text%3E%3C/svg%3E">
+<title>Amrutha T — Software Engineer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E9ECE9;
+    --paper-dim:#DEE3DE;
+    --ink:#16211D;
+    --ink-soft:#4B564F;
+    --teal:#1C7F78;
+    --teal-deep:#12524E;
+    --amber:#CE8A2E;
+    --line:#B7C0B8;
+    --card:#F4F6F3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--teal); color:var(--paper);}
+  a{color:inherit; text-decoration:none;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+
+  .bg-grid{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:0.25;
+  }
+
+  .wrap{max-width:980px; margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+
+  /* ---- NAV ---- */
+  nav{
+    position:sticky; top:0; z-index:10;
+    backdrop-filter:blur(8px);
+    background:rgba(233,236,233,0.85);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; padding-top:16px; padding-bottom:16px;}
+  .logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; letter-spacing:0.5px;}
+  .logo span{color:var(--teal);}
+  .navlinks{display:flex; gap:28px; font-size:14px;}
+  .navlinks a{color:var(--ink-soft); transition:color .2s;}
+  .navlinks a:hover{color:var(--teal);}
+
+  /* ---- HERO ---- */
+  header.hero{padding:96px 0 64px; position:relative;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--teal-deep);
+    letter-spacing:2px; text-transform:uppercase; margin-bottom:22px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:24px; height:1px; background:var(--teal); display:inline-block;}
+  h1{
+    font-family:'Space Grotesk',sans-serif; font-weight:700;
+    font-size:clamp(40px,7vw,72px); line-height:1.02; letter-spacing:-1px;
+    margin-bottom:22px;
+  }
+  h1 em{font-style:normal; color:var(--teal-deep); position:relative;}
+  .hero p.lead{max-width:560px; font-size:18px; color:var(--ink-soft); margin-bottom:34px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px;}
+  .btn{
+    font-family:'JetBrains Mono',monospace; font-size:13px;
+    padding:12px 22px; border-radius:2px; border:1px solid var(--ink);
+    transition:all .2s ease; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-solid{background:var(--ink); color:var(--paper);}
+  .btn-solid:hover{background:var(--teal-deep); border-color:var(--teal-deep);}
+  .btn-outline{border-color:var(--ink-soft); color:var(--ink);}
+  .btn-outline:hover{border-color:var(--ink); background:var(--card);}
+
+  /* band structure svg motif */
+  .band-motif{width:100%; height:120px; opacity:0.9;}
+  .band-motif path{fill:none; stroke-width:1.6;}
+
+  /* ---- SECTION SHELL ---- */
+  section{padding:64px 0; border-top:1px solid var(--line); position:relative;}
+  .sec-head{display:flex; align-items:baseline; gap:16px; margin-bottom:40px;}
+  .sec-num{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:14px;}
+  .sec-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:28px;}
+
+  /* ---- ABOUT ---- */
+  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:48px; align-items:start;}
+  .about-grid p{color:var(--ink-soft); margin-bottom:16px; font-size:15.5px;}
+  .fact-list{display:flex; flex-direction:column; gap:14px; font-size:14px;}
+  .fact{display:flex; justify-content:space-between; border-bottom:1px dashed var(--line); padding-bottom:10px;}
+  .fact .k{color:var(--ink-soft); font-family:'JetBrains Mono',monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:1px;}
+  .fact .v{font-weight:500; text-align:right;}
+
+  /* ---- STACK / SKILLS as layered blocks ---- */
+  .stack{display:flex; flex-direction:column; gap:2px; border:1px solid var(--ink); border-radius:3px; overflow:hidden;}
+  .stack-layer{background:var(--card); padding:20px 24px; display:grid; grid-template-columns:160px 1fr; gap:20px; align-items:center; border-top:1px solid var(--line);}
+  .stack-layer:first-child{border-top:none;}
+  .stack-layer:nth-child(even){background:#EEF1EC;}
+  .layer-label{font-family:'JetBrains Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:var(--teal-deep); font-weight:500;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:'JetBrains Mono',monospace; font-size:12.5px;
+    padding:5px 10px; border:1px solid var(--line); border-radius:2px; background:var(--paper);
+  }
+
+  /* ---- EXPERIENCE ---- */
+  .xp-card{border:1px solid var(--line); background:var(--card); border-radius:3px; padding:28px 30px;}
+  .xp-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; margin-bottom:6px;}
+  .xp-role{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px;}
+  .xp-org{color:var(--teal-deep); font-weight:500;}
+  .xp-date{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--ink-soft); white-space:nowrap;}
+  .xp-card ul{margin:16px 0 0 0; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:10px;}
+  .xp-card li{padding-left:20px; position:relative; font-size:14.5px; color:var(--ink-soft);}
+  .xp-card li::before{content:'—'; position:absolute; left:0; color:var(--teal);}
+
+  /* ---- PROJECTS ---- */
+  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .proj-card{
+    border:1px solid var(--line); background:var(--card); border-radius:3px; padding:26px;
+    display:flex; flex-direction:column; gap:14px; transition:transform .2s ease, border-color .2s ease;
+  }
+  .proj-card:hover{transform:translateY(-3px); border-color:var(--teal);}
+  .proj-tag{font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:var(--amber);}
+  .proj-title{font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600;}
+  .proj-card p{font-size:14px; color:var(--ink-soft);}
+  .proj-stack{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:8px;}
+  .proj-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:2px;}
+  .proj-links a{
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--teal-deep);
+    border-bottom:1px solid var(--teal-deep); padding-bottom:2px;
+  }
+  .proj-links a:hover{color:var(--ink); border-color:var(--ink);}
+
+  /* ---- EDUCATION / CERTS / ACHIEVEMENTS ---- */
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  .edu-item{margin-bottom:22px;}
+  .edu-item .degree{font-weight:600; font-family:'Space Grotesk',sans-serif; font-size:16.5px;}
+  .edu-item .school{color:var(--teal-deep); font-size:14px; margin-top:2px;}
+  .edu-item .yrs{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:2px;}
+  .simple-list{list-style:none; display:flex; flex-direction:column; gap:12px;}
+  .simple-list li{font-size:14px; color:var(--ink-soft); padding-left:18px; position:relative;}
+  .simple-list li::before{content:'▸'; position:absolute; left:0; color:var(--amber);}
+
+  /* ---- CONTACT / FOOTER ---- */
+  footer{padding:80px 0 48px; border-top:1px solid var(--line);}
+  footer .sec-title{font-size:34px;}
+  .contact-links{display:flex; flex-wrap:wrap; gap:16px; margin-top:30px;}
+  .contact-links a{
+    font-family:'JetBrains Mono',monospace; font-size:14px;
+    border:1px solid var(--ink); padding:12px 20px; border-radius:2px;
+    transition:all .2s ease;
+  }
+  .contact-links a:hover{background:var(--ink); color:var(--paper);}
+  .foot-note{margin-top:60px; font-size:12.5px; color:var(--ink-soft); font-family:'JetBrains Mono',monospace;}
+
+  @media (max-width:760px){
+    .navlinks{display:none;}
+    .about-grid, .two-col, .proj-grid{grid-template-columns:1fr;}
+    .stack-layer{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .proj-card{transition:none;}
+  }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">AMRUTHA<span>.T</span></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#stack">Stack</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">Palakkad, Kerala · Open to opportunities</div>
+  <h1>Building the<br><em>full stack</em>, one<br>layer at a time.</h1>
+  <p class="lead">Aspiring Software Engineer with hands-on experience across React, Spring Boot, and MySQL — building things end to end, from database schema to the pixel on screen.</p>
+  <div class="hero-actions">
+    <a class="btn btn-solid" href="#contact">Get in touch →</a>
+    <a class="btn btn-outline" href="Amrutha_T_Resume.pdf" download>Download Resume ↓</a>
+    <a class="btn btn-outline" href="https://github.com/AmruthaT23" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn btn-outline" href="https://www.linkedin.com/in/amrutha-t-0b2b62257" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+
+  <!-- band-structure motif, nodding to her DFT/electronic band structure project -->
+  <svg class="band-motif" viewBox="0 0 900 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,90 C100,20 150,20 250,70 C350,110 400,10 500,40 C600,70 650,10 750,50 C820,80 860,30 900,60" stroke="#1C7F78" opacity="0.55"/>
+    <path d="M0,60 C120,90 180,100 260,40 C340,-10 420,80 520,80 C610,80 660,100 760,30 C820,-5 860,60 900,20" stroke="#CE8A2E" opacity="0.45"/>
+    <path d="M0,30 C90,60 200,10 300,55 C400,100 480,20 560,55 C650,90 720,30 820,60 C860,72 880,50 900,45" stroke="#16211D" opacity="0.25"/>
+  </svg>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num mono">01</span><span class="sec-title">About</span></div>
+    <div class="about-grid">
+      <div>
+        <p>I'm a Master's student in Computer Applications at MIT, Manipal, with a background that started in Physics before shifting fully into software. That path shows up in how I work — I like understanding a system from first principles, whether that's a REST API's request lifecycle or an electronic band structure.</p>
+        <p>Most recently I spent four months at Mphasis Limited building a vendor-based cart module end to end: React on the frontend, Spring Boot and MySQL on the backend, JWT securing every endpoint in between. I care about the parts that are easy to skip — validating APIs properly, handling edge cases in UI logic, and making sure the pieces actually connect.</p>
+      </div>
+      <div class="fact-list">
+        <div class="fact"><span class="k">Location</span><span class="v">Palakkad, Kerala, IN</span></div>
+        <div class="fact"><span class="k">Focus</span><span class="v">Full-Stack Development</span></div>
+        <div class="fact"><span class="k">Currently</span><span class="v">MCA @ MIT, Manipal</span></div>
+        <div class="fact"><span class="k">Email</span><span class="v">amruthabala23@gmail.com</span></div>
+        <div class="fact"><span class="k">Phone</span><span class="v">+91 7994794348</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num mono">02</span><span class="sec-title">The Stack</span></div>
+    <div class="stack">
+      <div class="stack-layer">
+        <div class="layer-label">Frontend</div>
+        <div class="chip-row">
+          <span class="chip">React.js</span><span class="chip">Vite</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span>
+        </div>
+      </div>
+      <div class="stack-layer">
+        <div class="layer-label">Backend</div>
+        <div class="chip-row">
+          <span class="chip">Spring Boot 3.5</span><span class="chip">RESTful APIs</span><span class="chip">Microservices</span><span class="chip">JWT Auth</span>
+        </div>
+      </div>
+      <div class="stack-layer">
+        <div class="layer-label">Database</div>
+        <div class="chip-row"><span class="chip">MySQL</span></div>
+      </div>
+      <div class="stack-layer">
+        <div class="layer-label">Languages</div>
+        <div class="chip-row">
+          <span class="chip">Java</span><span class="chip">C++</span><span class="chip">C</span><span class="chip">SQL</span><span class="chip">Python (basic)</span>
+        </div>
+      </div>
+      <div class="stack-layer">
+        <div class="layer-label">Tools & Testing</div>
+        <div class="chip-row">
+          <span class="chip">Git / GitHub</span><span class="chip">Postman</span><span class="chip">Thunder Client</span><span class="chip">Maven</span><span class="chip">JUnit</span>
+        </div>
+      </div>
+      <div class="stack-layer">
+        <div class="layer-label">Foundations</div>
+        <div class="chip-row">
+          <span class="chip">OOP</span><span class="chip">DBMS</span><span class="chip">SDLC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num mono">03</span><span class="sec-title">Experience</span></div>
+    <div class="xp-card">
+      <div class="xp-top">
+        <div>
+          <div class="xp-role">Software Engineer Intern</div>
+          <div class="xp-org">Mphasis Limited</div>
+        </div>
+        <div class="xp-date">Jan 2026 — Apr 2026</div>
+      </div>
+      <ul>
+        <li>Developed a vendor-based cart module using React and Vite, featuring dynamic subservice listings, quantity controls, real-time price calculation, and checkout workflows.</li>
+        <li>Designed and implemented backend services using Spring Boot (Java) and MySQL to manage cart, booking, and feedback data, integrated with JWT-based authentication to secure API endpoints.</li>
+        <li>Built an end-to-end feedback and review module supporting star ratings, categorized feedback, comments, and photo uploads via Cloudinary integration.</li>
+        <li>Tested and validated REST APIs using Postman, ensuring reliable request/response handling across cart, booking, and feedback modules.</li>
+        <li>Collaborated with the team to design conditional UI logic and confirmation workflows, contributing to a smoother end-to-end booking and feedback experience.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num mono">04</span><span class="sec-title">Projects</span></div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-tag">Full-Stack Web App</div>
+        <div class="proj-title">Indian Art & Culture</div>
+        <p>An educational web application exploring India's art and cultural heritage through statewise and region-wise content. Built with JWT authentication, role-based access control, interactive quizzes, and learning-progress tracking on a Spring Boot microservices backend.</p>
+        <div class="proj-links">
+          <a href="https://github.com/AmruthaT23" target="_blank" rel="noopener">GitHub Repo ↗</a>
+          <a href="#contact">Live Demo Coming Soon</a>
+        </div>
+        <div class="proj-stack">
+          <span class="chip">React.js</span><span class="chip">Vite</span><span class="chip">Spring Boot</span><span class="chip">JWT</span><span class="chip">MySQL 8</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-tag">Computational Materials Science</div>
+        <div class="proj-title">Band Structure Analysis of MoS₂</div>
+        <p>Analyzed the electronic properties of MoS₂ using Density Functional Theory. Ran SCF and band-structure simulations in Quantum ESPRESSO via the BURAI GUI, using material data from the C2DB database to generate and interpret electronic band structures.</p>
+        <div class="proj-links">
+          <a href="https://github.com/AmruthaT23" target="_blank" rel="noopener">Project Files ↗</a>
+        </div>
+        <div class="proj-stack">
+          <span class="chip">Quantum ESPRESSO</span><span class="chip">DFT</span><span class="chip">BURAI GUI</span><span class="chip">C2DB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num mono">05</span><span class="sec-title">Education & Credentials</span></div>
+    <div class="two-col">
+      <div>
+        <div class="edu-item">
+          <div class="degree">Master of Computer Application (MCA)</div>
+          <div class="school">Manipal Institute of Technology (MIT), MAHE</div>
+          <div class="yrs">2024 — 2026</div>
+        </div>
+        <div class="edu-item">
+          <div class="degree">B.Sc. Physics Model II (Computer Application)</div>
+          <div class="school">Bharata Mata College, Thrikkakara — MG University</div>
+          <div class="yrs">2021 — 2024</div>
+        </div>
+        <ul class="simple-list">
+          <li>5th Rank holder, B.Sc. Physics Model II — Mahatma Gandhi University</li>
+          <li>Best Student, Department of Physics, 2024 — Bharata Mata College</li>
+        </ul>
+      </div>
+      <div>
+        <div class="layer-label" style="margin-bottom:14px;">Certifications</div>
+        <ul class="simple-list">
+          <li>Linear Algebra for Machine Learning and Data Science — Coursera (DeepLearning.AI)</li>
+          <li>Build Your First GUI App with Java — Coursera Project Network</li>
+          <li>Python Programming — Course DCS Robotics</li>
+          <li>Responsive Websites Basics: HTML, CSS & JavaScript — Coursera (University of London)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num mono">06</span><span class="sec-title">Let's build something</span></div>
+    <p style="color:var(--ink-soft); max-width:480px;">Looking for a full-stack engineer who's comfortable across the whole stack — frontend to database — and likes getting the details right. Reach out.</p>
+    <div class="contact-links">
+      <a href="Amrutha_T_Resume.pdf" download>Resume ↓</a>
+      <a href="mailto:amruthabala23@gmail.com">✉ amruthabala23@gmail.com</a>
+      <a href="tel:+917994794348">☎ +91 7994794348</a>
+      <a href="https://github.com/AmruthaT23" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/amrutha-t-0b2b62257" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="foot-note">© 2026 Amrutha T · Built with care.</div>
+  </div>
+</footer>
+
+</body>
+</html>
